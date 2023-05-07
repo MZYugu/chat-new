@@ -44,13 +44,13 @@
   </div>
 </div>
 
-<div class="form">
+<%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
   <div class="form_input">
-    <input class="form_message" placeholder="type a message">
+    <%= f.text_field :content, class: 'form_message', placeholder: 'type a message' %>
     <label class="form_image">
       <span class="image_file">IMAGE</span>
-      <input type="file" class="hidden">
+      <%= f.file_field :image, class: 'hidden' %>
     </label>
   </div>
-  <input class="form_submit" type="submit" value="SEND">
-</div>
+  <%= f.submit 'SEND', class: 'form_submit' %>
+<% end %>
